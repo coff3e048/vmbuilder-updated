@@ -1,4 +1,7 @@
-README
+
+This repo is a continuation of francismunch's easy cloud VM script to include modern versions of distributions (while also omitting outdated versions). The majority of the script code is his making. 
+
+
 
 Proxmox Virtual Machine Builder with Cloud Images
 
