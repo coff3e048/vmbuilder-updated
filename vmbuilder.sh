@@ -7,8 +7,9 @@ echo "# This will automate so much and make it so easy to spin up a VM machine f
 echo "# A VM Machine typically will be spun up and ready in less then 3 minutes."
 echo "#"
 echo "# Written by Francis Munch"
-echo "# email: francismunch@tuta.io"
-echo "# github: https://github.com/francismunch/vmbuilder"
+echo "# Edited by coff3e"
+echo "# original github: https://github.com/francismunch/vmbuilder"
+echo "# updated github: https://github.com/pascal48/vmbuilder-updated"
 echo "###"
 echo "#############################################################################################"
 echo
@@ -16,12 +17,13 @@ echo
 # Going to ask questions for VM number, hostname, vlan tag
 echo
 while true; do
-   read -r -p "Enter desired hostname for the Virutal Machine: " NEWHOSTNAME
-   if [[ ! $NEWHOSTNAME == *['!'@#\$%^\&*()\_+\']* ]];then
-      break;
+   read -r -p "Enter desired hostname for the Virtual Machine: " NEWHOSTNAME
+   if [[ ! $NEWHOSTNAME == *['!'@#\$%^\&*()\_+\']* ]];
+     then
+     break;
    else
       echo "Contains a character not allowed for a hostname, please try again"
-   fi
+ fi
 done
 echo
 echo "*** Taking a 5-7 seconds to gather information ***"
@@ -513,12 +515,12 @@ echo
 echo
 echo "Please select the cloud image you would like to use"
 PS3='Select an option and press Enter: '
-options=("Ubuntu Groovy 20.10 Cloud Image" "Ubuntu Focal 20.04 Cloud Image" "Ubuntu Minimal Focal 20.04 Cloud Image" "CentOS 7 Cloud Image" "Debian 10 Cloud Image" "Debian 9 Cloud Image" "Ubuntu 18.04 Bionic Image" "CentOS 8 Cloud Image" "Fedora 32 Cloud Image" "Rancher OS Cloud Image")
+options=("Ubuntu Groovy 21.04 Cloud Image" "Ubuntu Focal 20.04 Cloud Image" "Ubuntu Minimal Focal 20.04 Cloud Image" "Ubuntu Bionic 18.04 Cloud Image" "CentOS 7 Cloud Image" "CentOS 8 Cloud Image" "CentOS Stream Cloud Image" "Fedora 34 Cloud Image" "Debian 11 Cloud Image" "Debian 10 Cloud Image")
 select osopt in "${options[@]}"
 do
   case $osopt in
-        "Ubuntu Groovy 20.10 Cloud Image")
-          [ -f "$isostorage/groovy-server-cloudimg-amd64-disk-kvm.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud-images.ubuntu.com/daily/server/groovy/current/groovy-server-cloudimg-amd64-disk-kvm.img -P $isostorage && break
+        "Ubuntu Groovy 21.04 Cloud Image")
+          [ -f "$isostorage/hirsute-server-cloudimg-amd64-disk-kvm.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud-images.ubuntu.com/daily/server/hirsute/current/hirsute-server-cloudimg-amd64-disk-kvm.img -P $isostorage && break
           ;;
         "Ubuntu Focal 20.04 Cloud Image")
           [ -f "$isostorage/focal-server-cloudimg-amd64-disk-kvm.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-disk-kvm.img -P $isostorage && break
@@ -526,26 +528,26 @@ do
         "Ubuntu Minimal Focal 20.04 Cloud Image")
           [ -f "$isostorage/ubuntu-20.04-minimal-cloudimg-amd64.img" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud-images.ubuntu.com/minimal/releases/focal/release/ubuntu-20.04-minimal-cloudimg-amd64.img -P $isostorage && break
           ;;
+        "Ubuntu Bionic 18.04 Cloud Image")
+          [ -f "$isostorage/bionic-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img -P $isostorage && break
+          ;;
         "CentOS 7 Cloud Image")
           [ -f "$isostorage/CentOS-7-x86_64-GenericCloud.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2 -P $isostorage && break
-          ;;
-        "Debian 10 Cloud Image")
-          [ -f "$isostorage/debian-10-openstack-amd64.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cdimage.debian.org/cdimage/openstack/current-10/debian-10-openstack-amd64.qcow2 -P $isostorage && break
-          ;;
-        "Debian 9 Cloud Image")
-          [ -f "$isostorage/debian-9-openstack-amd64.qcow2" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cdimage.debian.org/cdimage/openstack/current-9/debian-9-openstack-amd64.qcow2 -P $isostorage && break
-          ;;
-        "Ubuntu 18.04 Bionic Image")
-          [ -f "$isostorage/bionic-server-cloudimg-amd64.img" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img -P $isostorage && break
           ;;
         "CentOS 8 Cloud Image")
           [ -f "$isostorage/CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud.centos.org/centos/8/x86_64/images/CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2 -P $isostorage && break
           ;;
-        "Fedora 32 Cloud Image")
-          [ -f "$isostorage/Fedora-Cloud-Base-32-1.6.x86_64.qcow2" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://download.fedoraproject.org/pub/fedora/linux/releases/32/Cloud/x86_64/images/Fedora-Cloud-Base-32-1.6.x86_64.qcow2 -P $isostorage && break
+        "CentOS Stream Cloud Image")
+          [ -f "$isostorage/CentOS-Stream-GenericCloud-8-20210603.0.x86_64.qcow2" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cloud.centos.org/centos/8-stream/x86_64/images/CentOS-Stream-GenericCloud-8-20210603.0.x86_64.qcow2 -P $isostorage && break
           ;;
-        "Rancher OS Cloud Image")
-          [ -f "$isostorage/rancheros-openstack.img" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://github.com/rancher/os/releases/download/v1.5.5/rancheros-openstack.img -P $isostorage && break
+        "Fedora 34 Cloud Image")
+          [ -f "$isostorage/Fedora-Cloud-Base-34-1.2.x86_64.qcow2" ] && echo && echo "Moving on you have his cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/releases/34/Cloud/x86_64/images/Fedora-Cloud-Base-34-1.2.x86_64.qcow2 -P $isostorage && break
+          ;;
+         "Debian 11 Cloud Image")
+          [ -f "$isostorage/debian-11-generic-amd64-daily.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cdimage.debian.org/cdimage/cloud/bullseye/daily/latest/debian-11-generic-amd64-daily.qcow2 -P $isostorage && break
+          ;;
+        "Debian 10 Cloud Image")
+          [ -f "$isostorage/debian-10-openstack-amd64.qcow2" ] && echo && echo "Moving on you have this cloud image" && break || echo && echo "You do not have this cloud image file so we are downloading it now" && echo && wget https://cdimage.debian.org/cdimage/openstack/current-10/debian-10-openstack-amd64.qcow2 -P $isostorage && break
           ;;
         *) echo "invalid option";;
   esac
@@ -555,35 +557,36 @@ echo "You have selected Cloud Image $osopt"
 echo
 
 # setting the Cloud Image for later for qm info
-if [ "$osopt" == "Ubuntu Groovy 20.10 Cloud Image" ];
+if [ "$osopt" == "Ubuntu Groovy 21.04 Cloud Image" ];
 then
-   cloudos=$isostorage'groovy-server-cloudimg-amd64-disk-kvm.img'
+   cloudos=$isostorage'hirsute-server-cloudimg-amd64-disk-kvm.img'
 elif [ "$osopt" == "Ubuntu Focal 20.04 Cloud Image" ];
 then
    cloudos=$isostorage'focal-server-cloudimg-amd64-disk-kvm.img'
 elif [ "$osopt" == "Ubuntu Minimal Focal 20.04 Cloud Image" ];
 then
    cloudos=$isostorage'ubuntu-20.04-minimal-cloudimg-amd64.img'
+elif [ "$osopt" == "Ubuntu Bionic 18.04 Cloud Image" ];
+then
+   cloudos=$isostorage'bionic-server-cloudimg-amd64.img'
 elif [ "$osopt" == "CentOS 7 Cloud Image" ];
 then
    cloudos=$isostorage'CentOS-7-x86_64-GenericCloud.qcow2'
-elif [ "$osopt" == "Debian 10 Cloud Image" ];
-then
-   cloudos=$isostorage'debian-10-openstack-amd64.qcow2'
-elif [ "$osopt" == "Debian 9 Cloud Image" ];
-then
-   cloudos=$isostorage'debian-9-openstack-amd64.qcow2'
-elif [ "$osopt" == "Ubuntu 18.04 Bionic Image" ];
-then
-   cloudos=$isostorage'bionic-server-cloudimg-amd64.img'
 elif [ "$osopt" == "CentOS 8 Cloud Image" ];
 then
    cloudos=$isostorage'CentOS-8-GenericCloud-8.2.2004-20200611.2.x86_64.qcow2'
-elif [ "$osopt" == "Fedora 32 Cloud Image" ];
+elif [ "$osopt" == "CentOS Stream Cloud Image" ];
 then
-   cloudos=$isostorage'Fedora-Cloud-Base-32-1.6.x86_64.qcow2'
-else [ "$osopt" == "Rancher OS Cloud Image" ];
-   cloudos=$isostorage'rancheros-openstack.img'
+    cloudos=$isostorage'CentOS-Stream-GenericCloud-8-20210603.0.x86_64.qcow2'
+elif [ "$osopt" == "Fedora 34 Cloud Image" ];
+then
+   cloudos=$isostorage'Fedora-Cloud-Base-34-1.2.x86_64.qcow2'
+elif [ "$osopt" == "Debian 11 Cloud Image" ];
+then
+    cloudos=$isostorage'debian-11-generic-amd64-daily.qcow2'
+elif [ "$osopt" == "Debian 10 Cloud Image" ];
+then
+   cloudos=$isostorage'debian-10-openstack-amd64.qcow2'
 fi
 echo
 
