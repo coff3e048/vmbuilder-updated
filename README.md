@@ -89,7 +89,6 @@ Features
   
     - Add an option to use IPV6 or IPV4
     - Alpine Linux
-    - Arch Linux
-    - Rancher OS works, but auto loads in and does not use username/password but the other variables work
+    - FreeBSD Support
     - Fedora Cloud Image works, but doesn't transfer all user.yaml (like host name) snippet info yet...but works with username/password/sshkeys
     - CentOS 8 Cloud Image works, but doesn't transfer all user.yaml (like host name) snippet info yet...but works with username/password/sshkeys 
