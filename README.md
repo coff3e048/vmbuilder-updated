@@ -44,15 +44,16 @@ Features
    - Asks what Proxmox node to have the VM running after all is complete
    - Makes it simple to learn some of the CLI of proxmox (by reviewing the script) and some awesome built in featues of Proxmox to get things up and running fast and easily
  Cloud Images currently available with this script
+   - Ubuntu Hirsute 21.04
    - Ubuntu Focal 20.04
    - Ubuntu 20.04 Minimal
    - CentOS 7
    - CentOS 8
-   - Debian 9
+   - CentOS 8 Stream
    - Debian 10
+   - Debian 11
    - Ubuntu Bionic 18.04
-   - Rancher OS
-   - Fedora 32
+   - Fedora 34
    - More to come or request one to be added to this script
 
  Added 2/10/2021
