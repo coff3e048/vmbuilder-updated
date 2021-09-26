@@ -1,7 +1,7 @@
 
 This repo is a continuation of francismunch's easy cloud VM script to include modern versions of distributions (while also omitting outdated versions). The majority of the script code is his making. 
 
-- A KNOWN ISSUE IS THAT THE GUEST DISK WILL FAIL TO ATTACH AS SCSI0 AND WONT BOOT THE CLOUDINIT DRIVE. A WORKAROUND IS TO READD THE DISK BY 'EDITING' THE UNUSED DISK AND EXPANDING IF NEEDED.
+- A KNOWN ISSUE IS THAT THE GUEST DISK WILL FAIL TO ATTACH AS SCSI0 AND WONT BOOT THE CLOUDINIT DRIVE. A WORKAROUND IS TO RE-ADD THE DISK BY 'EDITING' THE UNUSED DISK AND EXPANDING IF NEEDED.
 
 Proxmox Virtual Machine Builder with Cloud Images
 
