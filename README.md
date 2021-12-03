@@ -50,13 +50,22 @@ Features
    - Ubuntu 20.04 Minimal
    - CentOS 7
    - CentOS 8
-   - CentOS 8 Stream
+   - AlmaLinux 8
    - Debian 10
    - Debian 11
    - Ubuntu Bionic 18.04
    - Fedora 34
+   - Fedora 35
    - More to come or request one to be added to this script
 
+ Added 12/02/2021
+ - Changed machine type to q35
+ - Changed CPU type from generic "kvm64" to "host"
+ - Disks are now added in virtio instead of scsi
+ - Fedora 35 added
+ - CentOS 8 switched out for AlmaLinux 8
+ - Added a thing that tells the user they can use a root account
+ 
  Added 2/10/2021
    - VM's now have a default VGA set to QXL
    - VM's now have the machine set to q35
