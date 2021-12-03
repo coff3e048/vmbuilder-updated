@@ -1,7 +1,7 @@
 
-This repo is a continuation of francismunch's easy cloud VM script to include modern versions of distributions (while also omitting outdated versions). The majority of the script code is his making. 
+*This repo is a continuation of francismunch's easy cloud VM script to include modern versions of distributions (while also omitting outdated versions). The majority of the script code is his making.*
 
-Proxmox Virtual Machine Builder with Cloud Images
+# Proxmox Virtual Machine Builder with Cloud Images
 
 You can have a virtual machine created and booted with the information you set within two minutes. Auto downloads the cloud image if you need it and once all the information is set it auto starts it for you.
 
@@ -9,18 +9,15 @@ This script can be used for beginners that don't know much about Proxmox yet or 
 
 
 
-How To Run the script
+# How To Run the script
   
-   1) First download the script vmbuilder.sh from github onto your proxmox node
-   2) Then you need to chmod +x vmbuilder.sh
-   3) If using SSH keys know the file location
-   4) Make sure you have snippets enabled on one of your storage options. In the Proxmox GUI go to Datacenter then Storage to see if you have it enabled or not
-   5) Then ./vmbuilder.sh
-   6) Then just follow the onscreen script questions and you will be up and running in no time!
+  It is recommended to use `curl` and keep it in whatever home folder you use for easier updating. Moving into */usr/sbin* is also an option
+  
+  ```curl 'https://raw.githubusercontent.com/pascal48/vmbuilder-updated/main/vmbuilder.sh' >> vmbuilder && chmod +x vmbuilder```
 
 
 
-Features
+# Features
  If you are in a cluster environment you are able to pick the Proxmox node to have it on (by the way of qm migrate)
  It will download the image for you if you don't have it
  It builds a user.yaml file and adds it as a snippet - so you can customize a lot of the cloud image VM when creating it (See Proxmox Wiki about snippets to learn more)
@@ -44,7 +41,8 @@ Features
    - Added the option to start after creation or not to start
    - Asks what Proxmox node to have the VM running after all is complete
    - Makes it simple to learn some of the CLI of proxmox (by reviewing the script) and some awesome built in featues of Proxmox to get things up and running fast and easily
- Cloud Images currently available with this script
+ 
+ # Cloud Images supported
    - Ubuntu Hirsute 21.04
    - Ubuntu Focal 20.04
    - Ubuntu 20.04 Minimal
@@ -56,7 +54,8 @@ Features
    - Ubuntu Bionic 18.04
    - Fedora 34
    - Fedora 35
-   - More to come or request one to be added to this script
+
+# Changelog
 
  Added 12/02/2021
  - Changed machine type to q35
@@ -66,33 +65,7 @@ Features
  - CentOS 8 switched out for AlmaLinux 8
  - Added a thing that tells the user they can use a root account
  
- Added 2/10/2021
-   - VM's now have a default VGA set to QXL
-   - VM's now have the machine set to q35
-   - Took out asking for password several times
-   - Took out some un-needed things that were pointed out
-   - Working on removing a few more things that are really not needed
-
- Added 01/06/2021
-   - Can now only select VLANS between 0 and 4096
-
- Added 01/03/2021
-   - Can now select which VMBR to use
-
- Added 01/02/2021
-   - Tablet pointer is disabled by default
-   - Cleaned up some of the wording
-   - Working on VMBR choices - hopefully in a day or two I will have that option avail
-   
- Added 12/04/2020
-   - Option to just hit enter on VMID number and accept default
-
- Added 11/26/2020
-   - Option to enable protection on the VM
-   - Option to turn it into a template
-   - Added Ubuntu Groovy 20.10 Cloud Image as an option  
-  
- Future things for the script
+# Future script ideas
   
     - Add an option to use IPV6 or IPV4
     - Alpine Linux
