@@ -47,12 +47,11 @@ This script can be used for beginners that don't know much about Proxmox yet or 
    - Ubuntu Focal 20.04
    - Ubuntu 20.04 Minimal
    - CentOS 7
-   - CentOS 8
    - AlmaLinux 8
    - Debian 10
    - Debian 11
    - Ubuntu Bionic 18.04
-   - Fedora 34
+   - Fedora 34 (will be removed when support ends)
    - Fedora 35
 
 # Changelog
@@ -65,10 +64,9 @@ This script can be used for beginners that don't know much about Proxmox yet or 
  - CentOS 8 switched out for AlmaLinux 8
  - Added a thing that tells the user they can use a root account
  
-# Future script ideas
+# Future script stuff
   
     - Add an option to use IPV6 or IPV4
     - Alpine Linux
     - FreeBSD Support
-    - Fedora Cloud Image works, but doesn't transfer all user.yaml (like host name) snippet info yet...but works with username/password/sshkeys
-    - CentOS 8 Cloud Image works, but doesn't transfer all user.yaml (like host name) snippet info yet...but works with username/password/sshkeys 
+    - Red Hat (Fedora, CentOS) cloud images work, but doesn't transfer all user.yaml (like host name) snippet info yet...but works with username/password/sshkeys
